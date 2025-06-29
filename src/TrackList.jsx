@@ -4,8 +4,8 @@ import SongTitles from "./SongTitles";
 const TrackList = ({ tracks }) => {
   return (<ul className="list-group grid grid-cols-2">
       {tracks.map((track,index) => (
-        <li key={track.track}><div className="ml-4 mb-4">
-<Tooltip id={`my-anchor-element-${index}`}><div><div>What a tooltip!</div><AlbumInfo item={track}/><SongTitles item={track}/></div></Tooltip><a data-tooltip-id={`my-anchor-element-${index}`}>
+        <li key={track.track}><div className="ml-4 mb-4" style={{maxWidth: "40vw"}}>
+<Tooltip id={`my-anchor-element-${index}`}><div><AlbumInfo item={track}/><SongTitles item={track}/></div></Tooltip><a data-tooltip-id={`my-anchor-element-${index}`}>
 <img src={track.album_pic} className="h-16 w-16 sm:h-32 sm:w-32" style={{border:"1px solid #0f172a"}}/></a>
 <div className="text-base sm:text-xl md:text-2xl xl:text-3xl mt-2 text-white">{track.track}</div></div></li>
       ))}
