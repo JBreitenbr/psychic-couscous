@@ -40,17 +40,26 @@ ol {
   padding-left: 1em;
 }
 .pagination li {
-  margin: 0 2px;
+  margin: 2px;
 }
 
 .pagination li a {
-  display: inline-block;
+  /*display: inline-block;
   padding: 3px 5px;
   background-color: white;
   color: navy;
   border: 1px solid #ddd;
   border-radius: 50%;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease; */
+  background: #fff;
+  border: 2px solid #666;
+  padding: 10px 15px;
+  border-radius: 50%;
+  height: 28px;
+  width: 28px;
+  position: relative;
+  margin: 5px;
+  cursor: pointer;
 }
 
 .pagination li a:hover {

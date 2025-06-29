@@ -20,7 +20,7 @@ const Pagination = ({
         {pageNumbers.map((number) => (
           <li
             key={number}
-            className={`page-item ${currentPage === number ? "active" : ""}`} >
+            className={`page-item ${currentPage === number ? "active" : ""}`} style={{marginBottom:"5px"}}>
             <a
               onClick={(e) => paginate(number, e)}
               href="!#"
