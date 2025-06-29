@@ -15,6 +15,7 @@ export default function App() {
   }
   function handleArtist(e){
     setArtist(e.target.value);
+    setCurrentPage(1);
   }
   useEffect(() => {
     const fetchTracks = async () => {
