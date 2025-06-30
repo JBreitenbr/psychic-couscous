@@ -5,7 +5,7 @@ import Pagination from "./Pagination";
 export default function App() {
   const [tracks, setTracks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [tracksPerPage] = useState(8);
+  const [tracksPerPage] = useState(10);
   const letters="ABCDEFGHJKLMNOPQRSTUVWYZ".split("");
   const [letter,setLetter]=useState();
   const [bands,setBands]=useState([]);
@@ -61,6 +61,6 @@ useEffect(() => {
         totalTracks={tracks.length}
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}
-      />{tracks.length>0 && tracks.length<50?(<div className="h-64 bg-slate-300 text-white text-3xl" style={{position:"sticky",bottom:"0px",width:"100vw"}}>Julia Breitenbruch 2025</div>):null}
+      />
     </div>)
 }

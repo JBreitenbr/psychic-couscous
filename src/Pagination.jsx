@@ -1,3 +1,4 @@
+import usePaginationRange, { DOTS } from "./usePaginationRange";
 const Pagination = ({
   tracksPerPage,
   totalTracks,
@@ -9,27 +10,32 @@ const Pagination = ({
   for (let i = 1; i <= Math.ceil(totalTracks / tracksPerPage); i++) {
     pageNumbers.push(i);
   }
+  let pR=usePaginationRange({totalPageCount:pageNumbers.length,buttonConst:3,siblingCount:1,currentPage:currentPage});
   const paginate = (pageNumber, e) => {
     e.preventDefault();
     setCurrentPage(pageNumber);
   };
-
+let arr;
+  if(pageNumbers.length<7){
+    arr=pageNumbers;
+  } else { arr=pR;}
   return (
     <nav>
       <ul className="pagination grid grid-cols-10">
-        {pageNumbers.map((number) => (
-          <li
-            key={number}
-            className={`page-item ${currentPage === number ? "active" : ""}`} style={{marginBottom:"5px"}}>
+        {arr.map((item) => (
+    <li
+            key={item}
+            className={`page-item ${currentPage === item ? "active" : ""}`} style={{marginBottom:"5px"}}>
+            <button>
             <a
-              onClick={(e) => paginate(number, e)}
+              onClick={(e) => paginate(item, e)}
               href="!#"
               className="page-link"
             >
-              {number}
-            </a>
-          </li>
-        ))}
+              {item}
+            </a></button>
+          </li>)
+        )}
       </ul>
     </nav>
   );
