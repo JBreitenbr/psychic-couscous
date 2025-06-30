@@ -6,6 +6,7 @@ export default function App() {
   const [tracks, setTracks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [tracksPerPage] = useState(10);
+//  const [totalPageCount,setTotalPageCount]=useState(30);
   const letters="ABCDEFGHJKLMNOPQRSTUVWYZ".split("");
   const [letter,setLetter]=useState();
   const [bands,setBands]=useState([]);
@@ -16,6 +17,7 @@ export default function App() {
   function handleArtist(e){
     setArtist(e.target.value);
     setCurrentPage(1);
+    //setTotalPageCount(Math.ceil(tracks.length/tracksPerPage));
   }
   useEffect(() => {
     const fetchTracks = async () => {

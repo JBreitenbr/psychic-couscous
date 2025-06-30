@@ -3,7 +3,7 @@ const Pagination = ({
   tracksPerPage,
   totalTracks,
   setCurrentPage,
-  currentPage,
+  currentPage
 }) => {
   const pageNumbers = [];
 
@@ -15,14 +15,11 @@ const Pagination = ({
     e.preventDefault();
     setCurrentPage(pageNumber);
   };
-let arr;
-  if(pageNumbers.length<7){
-    arr=pageNumbers;
-  } else { arr=pR;}
+
   return (
     <nav>
       <ul className="pagination grid grid-cols-10">
-        {arr.map((item) => (
+        {pR.map((item) => (
     <li
             key={item}
             className={`page-item ${currentPage === item ? "active" : ""}`} style={{marginBottom:"5px"}}>
