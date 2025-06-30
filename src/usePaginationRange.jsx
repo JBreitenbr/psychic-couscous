@@ -14,7 +14,6 @@ export const usePaginationRange = ({
   const paginationRange = useMemo(() => {
     // Pages count is determined as siblingCount + firstPage + lastPage + currentPage + 2*DOTS
     const totalPageNumbers = buttonConst + 2 * siblingCount;
-
     /*
           If the number of pages is less than the page numbers we want to show in our
           paginationComponent, we return the range [1..totalPageCount]
@@ -42,7 +41,7 @@ export const usePaginationRange = ({
 
     if (!shouldShowLeftDots && shouldShowRightDots) {
       let leftItemCount = 3 + 2 * siblingCount;
-      let leftRange = range(1, leftItemCount);
+      let leftRange = range(1, leftItemCount).filter((item) => item !== DOTS);
 
       return [...leftRange, DOTS, totalPageCount];
     }
@@ -52,16 +51,16 @@ export const usePaginationRange = ({
       let rightRange = range(
         totalPageCount - rightItemCount + 1,
         totalPageCount
-      );
+      ).filter((item) => item !== DOTS);
 
       return [firstPageIndex, DOTS, ...rightRange];
     }
 
     if (shouldShowLeftDots && shouldShowRightDots) {
-      let middleRange = range(leftSiblingIndex, rightSiblingIndex);
+      let middleRange = range(leftSiblingIndex, rightSiblingIndex).filter( (item) => item !== DOTS);
       return [firstPageIndex, DOTS, ...middleRange, DOTS, lastPageIndex];
     }
-  }, [totalPageCount, siblingCount, currentPage, buttonConst]);
+  }, [totalPageCount, currentPage]);
   return paginationRange;
 };
 export default usePaginationRange;
