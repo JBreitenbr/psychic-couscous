@@ -1,11 +1,12 @@
 {
   "name": "react-javascript",
-  "homepage":"https://jbreitenbr.github.io/psychic-couscous/",
+  "homepage": "https://jbreitenbr.github.io/psychic-couscous/",
   "version": "1.0.0",
   "type": "module",
   "description": "React TypeScript on Replit, using Vite bundler",
   "scripts": {
-    "predeploy":"npm run build","deploy":"gh-pages -d dist",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -25,6 +26,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
     "gh-pages": "^6.3.0",
+    "react-javascript": "file:",
     "react-tooltip": "^5.29.1",
     "tailwindcss": "^4.1.11"
   }

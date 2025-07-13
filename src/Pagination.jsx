@@ -25,6 +25,7 @@ const Pagination = ({
               onClick={(e) => paginate(number, e)}
               href="!#"
               className="page-link"
+              style={totalTracks>200?{backgroundColor:"papayawhip"}:{backgroundColor:"white"}}
             >
               {number}
             </a>
