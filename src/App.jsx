@@ -10,10 +10,10 @@ export default function App() {
   const letters="ABCDEFGHJKLMNOPQRSTUVWYZ".split("");
   const [letter,setLetter]=useState();
   const [bands,setBands]=useState([]);
-  let countDict={};
-for(let i=0;i<bands.length;i++){
+  let [countDict,setCountDict]=useState({});
+/*for(let i=0;i<bands.length;i++){
   countDict[bands[i]]=tracks.filter((item)=>item.artist==bands[i]).length;
-}
+}*/
   const [artist,setArtist]=useState("none");
   function handleLetter(e){
     setLetter(e.target.value);
@@ -45,6 +45,15 @@ useEffect(() => {
 
     fetchBands();
   },[letter]);
+  useEffect(()=>{
+    const fetchCountDict= async () => 
+      {
+        const res = await fetch("https://raw.githubusercontent.com/JBreitenbr/Spotify-Data/refs/heads/main/countDict.json");
+        const data = await res.json();
+        setCountDict(data);
+      };
+    fetchCountDict();
+  },[]);
   const indexOfLastTrack = currentPage * tracksPerPage;
   const indexOfFirstTrack = indexOfLastTrack - tracksPerPage;
   const currentTracks = tracks.slice(indexOfFirstTrack, indexOfLastTrack);
