@@ -5,7 +5,7 @@ import Pagination from "./Pagination";
 export default function App() {
   const [tracks, setTracks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [tracksPerPage] = useState(10);
+  const [tracksPerPage,setTracksPerPage] = useState(10);
 //  const [totalPageCount,setTotalPageCount]=useState(30);
   const letters="ABCDEFGHJKLMNOPQRSTUVWYZ".split("");
   const [letter,setLetter]=useState();
@@ -24,6 +24,9 @@ export default function App() {
       const res = await fetch(`https://raw.githubusercontent.com/JBreitenbr/Spotify-Data/refs/heads/main/Songs/${artist}.json`);
       const data = await res.json();
       setTracks(data);
+      if(data.length>200){
+        setTracksPerPage(6);
+      }
     };
 
     fetchTracks();

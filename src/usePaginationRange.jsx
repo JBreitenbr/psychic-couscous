@@ -60,7 +60,7 @@ export const usePaginationRange = ({
       let middleRange = range(leftSiblingIndex, rightSiblingIndex).filter( (item) => item !== DOTS);
       return [firstPageIndex, DOTS, ...middleRange, DOTS, lastPageIndex];
     }
-  }, [totalPageCount, currentPage]);
+  }, [totalPageCount, currentPage, siblingCount, buttonConst]);
   return paginationRange;
 };
 export default usePaginationRange;
