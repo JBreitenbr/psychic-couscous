@@ -29,6 +29,8 @@ export default function App() {
       setTracks(data);
       if(data.length>200){
         setTracksPerPage(6);
+      } else {
+        setTracksPerPage(10);
       }
     };
 
