@@ -10,6 +10,10 @@ export default function App() {
   const letters="ABCDEFGHJKLMNOPQRSTUVWYZ".split("");
   const [letter,setLetter]=useState();
   const [bands,setBands]=useState([]);
+  let countDict={};
+for(let i=0;i<bands.length;i++){
+  countDict[bands[i]]=tracks.filter((item)=>item.artist==bands[i]).length;
+}
   const [artist,setArtist]=useState("none");
   function handleLetter(e){
     setLetter(e.target.value);
@@ -17,7 +21,6 @@ export default function App() {
   function handleArtist(e){
     setArtist(e.target.value);
     setCurrentPage(1);
-    //setTotalPageCount(Math.ceil(tracks.length/tracksPerPage));
   }
   useEffect(() => {
     const fetchTracks = async () => {
@@ -37,6 +40,7 @@ useEffect(() => {
       const pre = await res.json();
       const data=pre.filter((item)=>item.name==letter).map((item)=>item.bands.map((sub)=>sub.name)).flat();
       setBands(data);
+      
     };
 
     fetchBands();
@@ -52,12 +56,12 @@ useEffect(() => {
       <select className="mb-2 mx-8 sm:mx-32 sm:h-6 sm:text-xl bg-white" onChange={handleLetter}>
         <option>--Select Letter--</option>
         {letters.map(item=>
-          <option key={item}>{item}</option>
+          <option key={item}>{item} </option>
         )}</select>
       <select className="mb-4 mx-8 sm:mx-32 sm:h-6 sm:text-xl bg-white" onChange={handleArtist}>
         <option>--Select Artist--</option>
         {bands.map(item=>
-          <option key={item}>{item}</option>
+          <option key={item} value={item}>{item} {countDict[item]?`(${countDict[item]})`:null}</option>
         )}</select>
       </div>
       {artist=="none"?<div className="spoti mt-7 sm:mt-36"></div>:<TrackList tracks={currentTracks} />}

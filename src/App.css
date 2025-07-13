@@ -44,31 +44,25 @@ ol {
 }
 
 .pagination li a {
-  /*display: inline-block;
-  padding: 3px 5px;
-  background-color: white;
-  color: navy;
-  border: 1px solid #ddd;
-  border-radius: 50%;
-  transition: background-color 0.3s ease, color 0.3s ease; */
   background: #fff;
   border: 2px solid #666;
-  padding: 10px 15px;
+  display: inline-block;
+  /*padding: 10px 15px;*/
   border-radius: 50%;
-  height: 18px;
-  width: 18px;
+  /*height: 18px;
+  width: 18px;*/
   position: relative;
-  margin: 5px;
+  /*margin: 5px;*/
   cursor: pointer;
 }
-
+/*
 .pagination li a:hover {
   background-color:dodgerblue;
   color: white;
-}
+}*/
 
 .pagination li.active a {
   background-color: dodgerblue;
-  color: white;
+  color: gray;
   border-color: navy;
 }
