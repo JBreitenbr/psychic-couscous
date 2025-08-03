@@ -39,29 +39,20 @@ ol {
   list-style-type: decimal;
   padding-left: 1em;
 }
+
 .pagination li {
-  margin: 2px;
+  margin: 10px 3px;
 }
 
 .pagination li a {
-  /*display: inline-block;
-  padding: 3px 5px;
-  background-color: white;
-  color: navy;
-  border: 1px solid #ddd;
-  border-radius: 50%;
-  transition: background-color 0.3s ease, color 0.3s ease; */
   background: #fff;
   border: 2px solid #666;
-  padding: 10px 15px;
+  padding: 7px 12px;
   border-radius: 50%;
   height: 18px;
   width: 18px;
   position: relative;
-  margin: 5px;
-  cursor: pointer;
 }
-
 .pagination li a:hover {
   background-color:dodgerblue;
   color: white;
@@ -71,4 +62,10 @@ ol {
   background-color: dodgerblue;
   color: white;
   border-color: navy;
+}
+
+.stuck {
+  position: sticky;
+  bottom: 0;
+  width: 100vw;
 }

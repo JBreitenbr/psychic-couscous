@@ -15,7 +15,7 @@ const Pagination = ({
   };
 
   return (
-    <nav className="mt-8">
+    <nav className="mt-8 bg-slate-300 h-12 stuck">
       <ul className="pagination grid grid-cols-10">
         {pageNumbers.map((number) => (
           <li

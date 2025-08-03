@@ -6,7 +6,7 @@ import Pagination2 from "./Pagination2";
 export default function App() {
   const [tracks, setTracks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [tracksPerPage,setTracksPerPage] = useState(10);
+  const [tracksPerPage,setTracksPerPage] = useState(8);
 //  const [totalPageCount,setTotalPageCount]=useState(30);
   const letters="ABCDEFGHJKLMNOPQRSTUVWYZ".split("");
   const [letter,setLetter]=useState();
@@ -76,8 +76,8 @@ useEffect(() => {
           <option key={item} value={item}>{item} {countDict[item]?`(${countDict[item]})`:null}</option>
         )}</select>
       </div>
-      {artist=="none"?<div className="spoti mt-7 sm:mt-36"></div>:<TrackList tracks={currentTracks} />}
-  {tracks.length<=100?   <Pagination
+        {artist=="none"?<div className="spoti mt-7 sm:mt-36"></div>:<TrackList tracks={currentTracks} />}
+  {tracks.length<=80?   <Pagination
         tracksPerPage={tracksPerPage}
         totalTracks={tracks.length}
         setCurrentPage={setCurrentPage}
