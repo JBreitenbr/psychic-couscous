@@ -24,7 +24,7 @@ let conv=(num,ind,nArr)=>nArr[ind]==DOTS && nArr[ind+1]==DOTS ? 9:num;
     arr=pageNumbers;
   } else { arr=pR;}*/
   return (
-    <nav className="mt-8 bg-slate-300 h-12 stuck">
+    <nav className="mt-8 h-12 stuck">
       <ul className="pagination grid grid-cols-10">
         {arr.map((item) => (
     <li
