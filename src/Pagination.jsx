@@ -15,7 +15,7 @@ const Pagination = ({
   };
 
   return (
-    <nav>
+    <nav className="mt-8">
       <ul className="pagination grid grid-cols-10">
         {pageNumbers.map((number) => (
           <li
@@ -25,7 +25,6 @@ const Pagination = ({
               onClick={(e) => paginate(number, e)}
               href="!#"
               className="page-link"
-              style={totalTracks>200?{backgroundColor:"papayawhip",width:"10px",height:"10px","margin":"2px"}:{backgroundColor:"white",width:"18px",height:"18px","margin":"5px"}}
             >
               {number}
             </a>

@@ -2,6 +2,7 @@ import './App.css'
 import { useState, useEffect } from "react";
 import TrackList from "./TrackList";
 import Pagination from "./Pagination";
+import Pagination2 from "./Pagination2";
 export default function App() {
   const [tracks, setTracks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -27,11 +28,11 @@ export default function App() {
       const res = await fetch(`https://raw.githubusercontent.com/JBreitenbr/Spotify-Data/refs/heads/main/Songs/${artist}.json`);
       const data = await res.json();
       setTracks(data);
-      if(data.length>200){
+      /*if(data.length>200){
         setTracksPerPage(6);
       } else {
         setTracksPerPage(10);
-      }
+      }*/
     };
 
     fetchTracks();
@@ -76,11 +77,11 @@ useEffect(() => {
         )}</select>
       </div>
       {artist=="none"?<div className="spoti mt-7 sm:mt-36"></div>:<TrackList tracks={currentTracks} />}
-      <Pagination
+  {tracks.length<=100?   <Pagination
         tracksPerPage={tracksPerPage}
         totalTracks={tracks.length}
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}
-      />
+      />:<Pagination2 tracksPerPage={tracksPerPage} totalTracks={tracks.length} setCurrentPage={setCurrentPage} currentPage={currentPage}/>}
     </div>)
 }
