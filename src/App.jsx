@@ -23,19 +23,17 @@ export default function App() {
     setArtist(e.target.value);
     setCurrentPage(1);
   }
-  useEffect(() => {
+  /*useEffect(() => {
     const fetchTracks = async () => {
-      const res = await fetch(`https://raw.githubusercontent.com/JBreitenbr/Spotify-Data/refs/heads/main/Songs/${artist}.json`);
-      const data = await res.json();
-      setTracks(data);
-      /*if(data.length>200){
-        setTracksPerPage(6);
-      } else {
-        setTracksPerPage(10);
-      }*/
-    };
-
-    fetchTracks();
+      const res = await fetch(`https://raw.githubusercontent.com/JBreitenbr/Spotify-Data/refs/heads/main/Songs/${artist}.json`); */
+  useEffect(() => {
+    fetch(`https://juliascodingeckle.pythonanywhere.com/spotiAPI/${artist}/`) 
+      .then(response => {
+        if (!response.ok) throw new Error("Network response was not ok");
+        return response.json();
+      })
+      .then(data => setTracks(data))
+      .catch(error => console.error("Fetch error:", error));
   }, [artist]);
 useEffect(() => {
     const fetchBands = async () => {
@@ -65,15 +63,15 @@ useEffect(() => {
       <div className="generale bg-slate-500" style={{position:"relative"}}>
      <div className="bg-slate-300 flex flex-col" style={{position: "sticky",top:"0px",width:"100vw"}}>
       <h3 className="text-white text-center text-xl h-12 pt-2 mb-6 bg" >My Own Private Spotify</h3>
-      <select className="mb-2 mx-8 sm:mx-32 sm:h-6 sm:text-xl bg-white" onChange={handleLetter}>
+      <select className="mb-2 mx-8 sm:mx-32 sm:h-6 sm:text-xl bg-white rounded" onChange={handleLetter}>
         <option>--Select Letter--</option>
         {letters.map(item=>
           <option key={item}>{item} </option>
         )}</select>
-      <select className="mb-4 mx-8 sm:mx-32 sm:h-6 sm:text-xl bg-white" onChange={handleArtist}>
+      <select className="mb-4 mx-8 sm:mx-32 sm:h-6 sm:text-xl bg-white rounded" onChange={handleArtist}>
         <option>--Select Artist--</option>
         {bands.map(item=>
-          <option key={item} value={item}>{item} {countDict[item]?`(${countDict[item]})`:null}</option>
+          <option key={item} value={item}>{item} </option>
         )}</select>
       </div>
         {artist=="none"?<div className="spoti mt-7 sm:mt-36"></div>:<TrackList tracks={currentTracks} />}

@@ -4,7 +4,8 @@ const range = (start, end) => {
   let length = end - start + 1;
   return Array.from({ length }, (_, index) => index + start);
 };
-
+let conv=(num,ind,nArr)=>nArr[ind]==DOTS && nArr[ind+1]==DOTS ? 9:num;
+//let newArr=rnd.map(conv).filter(num=>
 export const usePaginationRange = ({
   totalPageCount,
   buttonConst,

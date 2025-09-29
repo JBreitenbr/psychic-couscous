@@ -14,7 +14,7 @@ const Pagination2 = ({
 let conv=(num,ind,nArr)=>nArr[ind]==DOTS && nArr[ind+1]==DOTS ? 9:num;
 //let newArr=rnd.map(conv).filter(num=>num!=9);
   let pR=usePaginationRange({totalPageCount:pageNumbers.length,buttonConst:3,siblingCount:1,currentPage:currentPage});
-  let arr=pR.filter(item=>item!=DOTS);
+  let arr=pR.filter(num=>num!=DOTS);
   const paginate = (pageNumber, e) => {
     e.preventDefault();
     setCurrentPage(pageNumber);
